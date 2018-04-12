@@ -1,5 +1,5 @@
-#httpdLib
+# httpdLib
 
-ES5 Lib done...
-ES6 Lib incomming... (fetch and promise)
+ES5 Lib done... Checkout ES5 Branch
+ES6 Working on... (fetch and promise). Checkout master Branch
 ES7 Lib incomming... (async and await)
