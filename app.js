@@ -10,22 +10,18 @@ http.get("https://jsonplaceholder.typicode.com/users")
     .catch(error => console.error(error));
 
 //POST
-var post = {
+let post = {
     title: "Foo POST SUCCESS",
     body: "Bar POST SUCESS",
     userId: 1
 }
 
 http.post("https://jsonplaceholder.typicode.com/posts", post)
-    .then(data => {
-        console.log(data);
-    })
-    .catch(error => {
-        console.log(error)
-    });
+    .then(data => console.log(data))
+    .catch(error => console.log(error));
 
 //PUT
-var post = {
+post = {
     id: 5,
     title: "Foo PUT Title SUCCESS",
     body: "Bar PUT BODY SUCCESS",
@@ -37,9 +33,7 @@ http.put("https://jsonplaceholder.typicode.com/posts/5", post)
     .catch(error => console.error(error));
 
 //PATCH
-var post = {
-    title: "Foo PATCH Title SUCCESS"
-}
+post = { title: "Foo PATCH Title SUCCESS" }
 
 http.patch("https://jsonplaceholder.typicode.com/posts/5", post)
     .then(data => console.log(data))
