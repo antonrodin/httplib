@@ -67,10 +67,10 @@ class HttpLib {
     async delete(url) {
         let response = await fetch(url, { method: 'DELETE' });
         if (response.status >= 200 && response.status < 300) {
-            return await response.json()
+            return "Deleted Success";
         } else {
-            let error = `Error: ${response.status} ${response.statusText}`;
-            return await error;
+            let error = await `Error: ${response.status} ${response.statusText}`;
+            return error;
         }
 
     }
