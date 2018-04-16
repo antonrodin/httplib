@@ -19,9 +19,9 @@ Old way of doing things, compatible with old browsers. Creating classes and func
 * app.js - rudimentary tests
 * httplib.js - the library itself
 
-ES7 Implementation ()
-=======
+ES7 Implementation ECMAScript 2017 (ES7 Branch)
+===============================================
 
-The same library as ES5, but using the new features of ES7 Javascript. Check the ES7 branch.
+The same library as ES6, but using the new features of ES7 Javascript. Check the ES7 branch.
 
-Async and Await. async function returns Promise object, and await is used inside "async function" for "wait" until get "response"...
+Async and Await. async function returns Promise object, and await is used inside "async function" for "wait" until get "response"... Today (2018) it soported by all new browsers. Dont use that in legacy code.
