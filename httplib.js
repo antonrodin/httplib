@@ -1,4 +1,7 @@
-// ES6 JS Library for HTTP Requests
+// ES7 JS Library for HTTP Requests (Await & Async)
+// Async function = return Promise.
+// Await, wait until finish.
+//
 // Vanilla JavaScript Test
 // @author Anton Zekeriev Rodin
 // @mail azr@azr.es
@@ -8,85 +11,67 @@
 class HttpLib {
 
     //Get Method
-    get(url) {
-        return new Promise(function (resolve, reject) {
-            fetch(url)
-                .then(response => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json()
-                    } else {
-                        let error = `Error: ${response.status} ${response.statusText}`;
-                        return reject(error);
-                    }
-                })
-                .then(data => resolve(data))
-                .catch(error => reject(error));
-        })
+    async get(url) {
+
+        let response = await fetch(url);
+        if (response.status >= 200 && response.status < 300) {
+            return await response.json()
+        } else {
+            let error = await `Error: ${response.status} ${response.statusText}`;
+            return error;
+        }
+
     }
 
     //Post method
-    post(url, data) {
-        return new Promise(function (resolve, reject) {
-            fetch(url, {
-                method: 'POST',
-                body: JSON.stringify(data),
-                headers: {
-                    "Content-type": "application/json; charset=UTF-8"
-                }
-            })
-                .then(response => response.json())
-                .then(json => resolve(json))
-                .catch(error => reject(error));
-        })
+    async post(url, data) {
+
+        let response = await fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        });
+
+        return await response.json();
     }
 
     //Put Method
-    put(url, data) {
-        return new Promise(function (resolve, reject) {
-            fetch(url, {
-                method: 'PUT',
-                body: JSON.stringify(data),
-                headers: {
-                    "Content-type": "application/json; charset=UTF-8"
-                }
-            })
-                .then(response => response.json())
-                .then(json => resolve(json))
-                .catch(error => reject("HttpLib error: " + error));
-        })
+    async put(url, data) {
+        let response = await fetch(url, {
+            method: 'PUT',
+            body: JSON.stringify(data),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        });
+
+        return await response.json();
     }
 
     //Patch Method
-    patch(url, data) {
-        return new Promise(function (resolve, reject) {
-            fetch(url, {
-                method: 'PATCH',
-                body: JSON.stringify(data),
-                headers: {
-                    "Content-type": "application/json; charset=UTF-8"
-                }
-            })
-                .then(response => response.json())
-                .then(json => resolve(json))
-                .catch(error => reject("HttpLib error: " + error));
+    async patch(url, data) {
+        let response = await fetch(url, {
+            method: 'PATCH',
+            body: JSON.stringify(data),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
         })
+
+        return await response.json();
     }
 
     //Delete method
-    delete(url) {
-        return new Promise(function (resolve, reject) {
-            fetch(url, { method: 'DELETE'} )
-                .then(response => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json()
-                    } else {
-                        let error = `Error: ${response.status} ${response.statusText}`;
-                        return reject(error);
-                    }
-                })
-                .then(json => resolve("Delete success!"))
-                .catch(error => reject("Httplib delete error: " + error));
-        })
-    }
+    async delete(url) {
+        let response = await fetch(url, { method: 'DELETE' });
+        if (response.status >= 200 && response.status < 300) {
+            return await response.json()
+        } else {
+            let error = `Error: ${response.status} ${response.statusText}`;
+            return await error;
+        }
 
+    }
 }
